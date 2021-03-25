@@ -1,0 +1,3 @@
+repository='https://github.com/davisking/dlib.git'
+module=''
+tag='origin'

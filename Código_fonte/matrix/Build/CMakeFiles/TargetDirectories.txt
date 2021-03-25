@@ -1,0 +1,8 @@
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/CMakeFiles/rebuild_cache.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/CMakeFiles/CriaImagem.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/CMakeFiles/edit_cache.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-build/CMakeFiles/rebuild_cache.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-build/CMakeFiles/edit_cache.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-build/dlib/CMakeFiles/rebuild_cache.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-build/dlib/CMakeFiles/dlib.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-build/dlib/CMakeFiles/edit_cache.dir

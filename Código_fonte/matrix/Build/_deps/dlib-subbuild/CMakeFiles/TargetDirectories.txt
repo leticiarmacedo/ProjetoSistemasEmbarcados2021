@@ -1,0 +1,3 @@
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/CMakeFiles/rebuild_cache.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/CMakeFiles/dlib-populate.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/CMakeFiles/edit_cache.dir

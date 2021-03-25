@@ -1,0 +1,3 @@
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-build/dlib/test_for_libpng_build/CMakeFiles/rebuild_cache.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-build/dlib/test_for_libpng_build/CMakeFiles/libpng_test.dir
+/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-build/dlib/test_for_libpng_build/CMakeFiles/edit_cache.dir

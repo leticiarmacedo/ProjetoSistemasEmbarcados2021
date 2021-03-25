@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/CMakeFiles/dlib-populate"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/CMakeFiles/dlib-populate.rule"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/CMakeFiles/dlib-populate-complete.rule"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/dlib-populate-prefix/src/dlib-populate-stamp/dlib-populate-install.rule"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/dlib-populate-prefix/src/dlib-populate-stamp/dlib-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/dlib-populate-prefix/src/dlib-populate-stamp/dlib-populate-download.rule"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/dlib-populate-prefix/src/dlib-populate-stamp/dlib-populate-update.rule"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/dlib-populate-prefix/src/dlib-populate-stamp/dlib-populate-patch.rule"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/dlib-populate-prefix/src/dlib-populate-stamp/dlib-populate-configure.rule"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/dlib-populate-prefix/src/dlib-populate-stamp/dlib-populate-build.rule"
+		},
+		{
+			"file" : "/home/pi/Desktop/Aulas/OpenCV/matrix/Build/_deps/dlib-subbuild/dlib-populate-prefix/src/dlib-populate-stamp/dlib-populate-test.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"dlib-populate"
+		],
+		"name" : "dlib-populate"
+	}
+}
