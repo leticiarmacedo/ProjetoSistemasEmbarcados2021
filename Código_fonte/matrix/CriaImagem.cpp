@@ -5,6 +5,8 @@
 #include <dlib/image_processing.h>
 #include <dlib/gui_widgets.h>
 #include <dlib/image_io.h>
+#include <time.h>
+#include <signal.h>
 
 
 using namespace dlib;
@@ -30,7 +32,11 @@ double compute_EAR(std::vector<cv::Point> vec) // Razão de aspecto
     double ear = (a + b) / (2.0 * c);
     return ear;
 }
+my_handler(sig_t s){
+           printf("Caught signal %d\n",s);
+           exit(1); 
 
+}
 int main()
 {
     try {
@@ -52,6 +58,10 @@ int main()
         frontal_face_detector detector = get_frontal_face_detector();
 
         deserialize("../../landmarks/shape_predictor_68_face_landmarks.dat") >> sp;
+
+        time_t inicio,momento;
+        inicio = time(NULL);
+        int last = 0;
 
         // Enquanto a janela estiver aberta processa o frame
         while (!win.is_closed()) {
@@ -91,9 +101,20 @@ int main()
 
                 //Se o resultado da razão de aspecto dos olhos for menor que 0.2 a pessoa está dormindo.
                 if ((right_ear + left_ear) / 2 < 0.2){
-                   	win.add_overlay(dlib::image_window::overlay_rect(faces[0], rgb_pixel(255, 255, 255), "Dormindo"));
-		  	system("echo 1      > /sys/class/gpio/gpio4/value");
+                    if (last)
+                    {
+                        momento = time(NULL);
+                        if(difftime(momento,inicio) >= 2){
+                            win.add_overlay(dlib::image_window::overlay_rect(faces[0], rgb_pixel(255, 255, 255), "Dormindo"));
+                            system("echo 1      > /sys/class/gpio/gpio4/value");
+                        }
+                    }
+                    else{
+                        inicio = time(NULL);
+                    }
+                    last = 1;
                 }else{
+                    last = 0;
                    	win.add_overlay(dlib::image_window::overlay_rect(faces[0], rgb_pixel(255, 255, 255), "Acordado"));
 			system("echo 0      > /sys/class/gpio/gpio4/value");
 		}
@@ -118,4 +139,5 @@ int main()
     catch (exception& e) {
         cout << e.what() << endl;
     }
+	signal (SIGINT,my_handler);
 }
