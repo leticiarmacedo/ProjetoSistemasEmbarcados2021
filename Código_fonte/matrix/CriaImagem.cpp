@@ -7,6 +7,7 @@
 #include <dlib/image_io.h>
 #include <time.h>
 #include <signal.h>
+#include <thread>
 
 
 using namespace dlib;
@@ -22,21 +23,35 @@ char c;
 cv::Point p;
 int const fps = 30;
 
-double compute_EAR(std::vector<cv::Point> vec) // Razão de aspecto 
+double compute_EAR1(std::vector<cv::Point> vec) // Razão de aspecto 
 {
 
     double a = cv::norm(cv::Mat(vec[1]), cv::Mat(vec[5]));
     double b = cv::norm(cv::Mat(vec[2]), cv::Mat(vec[4]));
     double c = cv::norm(cv::Mat(vec[0]), cv::Mat(vec[3]));
     //compute EAR
-    double ear = (a + b) / (2.0 * c);
-    return ear;
+    double right_ear = (a + b) / (2.0 * c);
+    return right_ear;
 }
-my_handler(sig_t s){
+double compute_EAR2(std::vector<cv::Point> vec) // Razão de aspecto 
+{
+
+    double a = cv::norm(cv::Mat(vec[1]), cv::Mat(vec[5]));
+    double b = cv::norm(cv::Mat(vec[2]), cv::Mat(vec[4]));
+    double c = cv::norm(cv::Mat(vec[0]), cv::Mat(vec[3]));
+    //compute EAR
+    double left_ear = (a + b) / (2.0 * c);
+    return left_ear;
+}
+
+
+
+ my_handler(sig_t s){
            printf("Caught signal %d\n",s);
            exit(1); 
 
 }
+
 int main()
 {
     try {
@@ -95,22 +110,30 @@ int main()
                     p.y = shape.part(b).y();
                     righteye.push_back(p);
                 }
+                
+                
+                std:: thread th1(compute_EAR1,righteye);
+                std:: thread th2(compute_EAR2,lefteye);
+
                 //Calcula a razão de aspecto dos olhos
-                double right_ear = compute_EAR(righteye);
-                double left_ear = compute_EAR(lefteye);
+                //double right_ear = compute_EAR(righteye);
+                //double left_ear = compute_EAR(lefteye);
+
+                th1.join();
+                th2.join();
 
                 //Se o resultado da razão de aspecto dos olhos for menor que 0.2 a pessoa está dormindo.
-                if ((right_ear + left_ear) / 2 < 0.2){
+                if ((right_ear + left_ear) / 2 < 0.21){
                     if (last)
-                    {
+                   {
                         momento = time(NULL);
-                        if(difftime(momento,inicio) >= 2){
+                        if(difftime(momento,inicio) >= 1){
                             win.add_overlay(dlib::image_window::overlay_rect(faces[0], rgb_pixel(255, 255, 255), "Dormindo"));
                             system("echo 1      > /sys/class/gpio/gpio4/value");
                         }
-                    }
+                   }
                     else{
-                        inicio = time(NULL);
+                       inicio = time(NULL);
                     }
                     last = 1;
                 }else{
@@ -139,5 +162,5 @@ int main()
     catch (exception& e) {
         cout << e.what() << endl;
     }
-	signal (SIGINT,my_handler);
+    signal (SIGINT,my_handler);
 }
